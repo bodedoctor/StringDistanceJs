@@ -1,8 +1,12 @@
-﻿function LevenshteinDistance(arrayA, arrayB) {
-    var distance = new Array(arrayA.length);
+﻿function LevenshteinDistance(valueA, valueB) {
+    var prefix = '+';
+    valueA = prefix + valueA;
+    valueB = prefix + valueB;
+
+    var distance = new Array(valueA.length);
 
     for (var i = 0; i < distance.length; i++) {
-        distance[i] = new Array(arrayB.length);
+        distance[i] = new Array(valueB.length);
     }
 
     var a;
@@ -17,7 +21,7 @@
 
     for (a = 1; a < distance.length; a++) {
         for (b = 1; b < distance[0].length; b++) {
-            if (arrayA[a] === arrayB[b]) {
+            if (valueA[a] === valueB[b]) {
                 distance[a][b] = distance[a - 1][b - 1];
             } else {
                 distance[a][b] =
